@@ -41,7 +41,7 @@ from urllib.parse import urlsplit
 
 import js
 from js import WebSocketPair
-from workers import Response, import_from_javascript, wait_until
+from workers import Response, import_from_javascript, waitUntil
 
 from config import resolve_proxyip
 from vless import (
@@ -364,6 +364,6 @@ async def vless_fetch(self, request, cfg):
                 break
 
     task.add_done_callback(_done)
-    wait_until(task_proxy)
+    waitUntil(task_proxy)
 
     return Response(None, status=101, web_socket=client)
